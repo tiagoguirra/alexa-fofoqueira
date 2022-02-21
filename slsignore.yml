@@ -1,0 +1,6 @@
+- data/**
+- .vscode/**
+- bin
+- .eslintrc
+- jest.config.json
+- jest-dynalite-config.yml

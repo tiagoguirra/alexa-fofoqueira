@@ -1,0 +1,30 @@
+service: tag-alexa-fifi
+
+custom:
+  stage: ${opt:stage, 'staging'}
+  regio: "sa-east-1"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: "sa-east-1"
+  deploymentBucket:
+    name: serverless.tag.deployment
+  environment:
+    STAGE: ${self:custom.stage}
+  # iamRoleStatements:
+  #   - Effect: Allow
+  #     Action: 
+  #       - 
+    
+functions:
+  alexaHandler:
+    handler: src/handler.handler
+    events:
+      - alexaSkill:
+          appId:  "amzn1.ask.skill.019b306e-3d7a-46f3-bbdf-2054dd57b61e"
+
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline

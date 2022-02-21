@@ -1,0 +1,30 @@
+{
+  "name": "alexa-fifi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.92",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/i18next": "^13.0.0",
+    "aws-sdk": "^2.1078.0",
+    "serverless-offline": "^8.5.0",
+    "serverless-plugin-typescript": "^2.1.1",
+    "ts-jest": "^27.1.3",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.5.0",
+    "tslint": "^5.20.1",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-jest": "^1.0.5",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "i18next": "^21.6.11",
+    "ask-sdk-core": "^2.12.0"
+  }
+}
