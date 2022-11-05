@@ -1,20 +1,23 @@
-import { CustomSkillRequestHandler } from "ask-sdk-core/dist/dispatcher/request/handler/CustomSkillRequestHandler";
+import { ResponseBuilder } from 'ask-sdk-core'
+import { Response } from 'ask-sdk-model'
+import { RequestAttributes } from '../types/request'
+import { AlexaHandle } from './handle'
 
-class HelpHandle implements CustomSkillRequestHandler {
-  handle(handlerInput) {
-    const requestAttributes =
-      handlerInput.attributesManager.getRequestAttributes();
-    return handlerInput.responseBuilder
-      .speak(requestAttributes.t("HELP_MESSAGE"))
-      .reprompt(requestAttributes.t("HELP_REPROMPT"))
-      .getResponse();
-  }
-  canHandle(handlerInput) {
-    const request = handlerInput.requestEnvelope.request;
-    return (
-      request.type === "IntentRequest" &&
-      request.intent.name === "AMAZON.HelpIntent"
-    );
+class HelpHandle extends AlexaHandle {
+  requestType: string = 'IntentRequest'
+  intentName: string[] = ['AMAZON.HelpIntent']
+
+  async execute({
+    response,
+    attributes
+  }: {
+    response: ResponseBuilder
+    attributes: RequestAttributes
+  }): Promise<Response> {
+    return response
+      .speak(attributes.t('help_text'))
+      .reprompt(attributes.t('help_reprompt'))
+      .getResponse()
   }
 }
-export default new HelpHandle();
+export default new HelpHandle()

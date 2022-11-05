@@ -1,21 +1,23 @@
-import { CustomSkillRequestHandler } from "ask-sdk-core/dist/dispatcher/request/handler/CustomSkillRequestHandler";
+import { ResponseBuilder } from 'ask-sdk-core'
+import { Response } from 'ask-sdk-model'
+import { RequestAttributes } from '../types/request'
+import { AlexaHandle } from './handle'
+class launchHandle extends AlexaHandle {
+  requestType: string = 'LaunchRequest'
 
-class launchHandle implements CustomSkillRequestHandler {
-  canHandle(handlerInput) {
-    const request = handlerInput.requestEnvelope.request;
-    return request.type === "LaunchRequest";
-  }
+  async execute({
+    response,
+    attributes
+  }: {
+    response: ResponseBuilder
+    attributes: RequestAttributes
+  }): Promise<Response> {
+    const launchPhrase = attributes.t('launch')
 
-  handle(handlerInput) {
-    const requestAttributes =
-      handlerInput.attributesManager.getRequestAttributes();
-    const speakOutput = requestAttributes.t("LAUNCH");
+    console.info('launchPhrase', launchPhrase)
 
-    return handlerInput.responseBuilder
-      .speak(speakOutput)
-      .reprompt(speakOutput)
-      .getResponse();
+    return response.speak(launchPhrase).reprompt(launchPhrase).getResponse()
   }
 }
 
-export default new launchHandle();
+export default new launchHandle()

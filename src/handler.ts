@@ -1,13 +1,12 @@
-import { SkillBuilders } from "ask-sdk-core";
-import handlers from "./handlers";
-import errorHandle from "./handlers/error.handle";
-import interceptors from "./interceptor";
+import { SkillBuilders } from 'ask-sdk'
+import handlers from './handlers'
+import errorHandle from './handlers/error.handle'
+import interceptors from './interceptor'
 
-const builder = SkillBuilders.custom();
+const builder = SkillBuilders.standard()
 
 export const handler = builder
   .addRequestHandlers(...handlers)
   .addErrorHandlers(errorHandle)
   .addRequestInterceptors(...interceptors)
-  .withCustomUserAgent("sample/basic-fact/v2")
-  .lambda();
+  .lambda()

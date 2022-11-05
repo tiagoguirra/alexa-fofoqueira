@@ -1,0 +1,65 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "nem te conto",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "chocada não é mesmo",
+            "mas quem somos nós pra julgar",
+            "né",
+            "pois é "
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "PregnantIntent",
+          "slots": [
+            {
+              "name": "woman",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "a {woman} ta grávida daquele traste",
+            "a {woman}",
+            "você acredita que a {woman} engravidou ",
+            "a {woman} ta grávida",
+            "sabe quem apareceu grávida",
+            "você não vai acreditar quem está grávida"
+          ]
+        },
+        {
+          "name": "FatherIntent",
+          "slots": [
+            {
+              "name": "father",
+              "type": "AMAZON.FirstName"
+            }
+          ],
+          "samples": [
+            "{father}",
+            "o {father}",
+            "o pai é aquele zé droguinha",
+            "você não vai acreditar quem é o pai",
+            "sabe quem é o pai",
+            "o pai é o {father}"
+          ]
+        }
+      ],
+      "types": []
+    }
+  }
+}
